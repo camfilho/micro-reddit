@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
-class Post < ApplicationRecord
+class Comment < ApplicationRecord
   belongs_to :user
-  has_many :comments
+  belongs_to :post
 
   validates :user, presence: true
+  validates :post, presence: true
   validates :body, length: { minimum: 10, maximum: 310 }
 end
